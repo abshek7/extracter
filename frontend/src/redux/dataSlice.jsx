@@ -55,22 +55,21 @@ export const processFile = (file) => async (dispatch) => {
   dispatch(setLoading(true));
 
   try {
-    // Ensure the file is a valid File object
+    
     if (!(file instanceof File)) {
       throw new Error('Invalid file object');
     }
 
-    // Convert file to base64
+  
     const fileContent = await fileToBase64(file);
 
-    // Prepare file data to send to backend
     const fileData = {
-      fileContent,  // base64 encoded content
+      fileContent,   
       fileName: file.name,
       mimeType: file.type
     };
 
-    const result = await uploadFile(fileData);  // Pass the file data to uploadFile
+    const result = await uploadFile(fileData); 
 
     if (result.success) {
       console.log('Upload successful:', result.data);

@@ -1,17 +1,47 @@
 import React from 'react';
-import Tabs from './components/Tabs';
+import Tabes from './components/Tabes';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import FileUpload from './components/FileUpload';  
 import './App.css';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#6C63FF',  
+    },
+    secondary: {
+      main: '#FF6584', 
+    },
+    background: {
+      default: '#f3f4f6',
+      paper: '#ffffff',
+    },
+  },
+  typography: {
+    fontFamily: 'Roboto, Arial, sans-serif',
+    h6: {
+      fontWeight: 700,
+      color: '#333',
+    },
+    body1: {
+      fontWeight: 400,
+      color: '#555',
+    },
+  },
+});
+
 
 const App = () => {
   return (
     <div className="app">
       <h1 className="text-center text-2xl font-bold mb-4">Invoice Management App</h1>
-
-      {/* Add the FileUpload component here */}
+      <ThemeProvider theme={theme}>
+      {/* wrapper */}
       <FileUpload /> 
 
-      <Tabs />
+      <Tabes />
+      </ThemeProvider>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -7,7 +7,6 @@ body {
   background-color: #f9f9f9;
 }
 
-/* Tab Content Styles */
 .tab-content {
   padding: 20px;
   background-color: #fff;
@@ -17,7 +16,6 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Table Styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -47,14 +45,12 @@ tbody tr:hover {
   background-color: #f1f1f1;
 }
 
-/* Empty State */
 td[colspan] {
   text-align: center;
   color: #999;
   font-style: italic;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   table {
     font-size: 14px;

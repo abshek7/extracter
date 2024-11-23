@@ -19,10 +19,10 @@ const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 50 * 1024 * 1024 },  
   fileFilter: (req, file, cb) => {
-    if (file.mimetype === 'application/pdf') {
+    if (file.mimetype === 'application/pdf' || file.mimetype === 'text/csv') {
       cb(null, true);
     } else {
-      cb(new Error('Only PDF files are allowed'));
+      cb(new Error('Only PDF and CSV files are allowed'));  // Updated error message
     }
   }
 });
@@ -61,13 +61,13 @@ app.post('/upload', upload.single('file'), async (req, res, next) => {
  
     const filePart = fileToGenerativePart(file.buffer, file.mimetype);
 
-    const prompt = `Parse the following PDF data and return ONLY a JSON object strictly following this structure, WITHOUT any additional text or explanations:
+    const prompt = `Parse the following PDF, CSV data and return ONLY a JSON object strictly following this structure, WITHOUT any additional text or explanations:
 {
   "invoices": [
     {
       "serialNumber": "",
       "customerName": "",
-      "productName": "",
+      "productname": "",
       "quantity": 0,
       "tax": 0,
       "totalAmount": 0,
