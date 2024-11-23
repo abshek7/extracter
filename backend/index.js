@@ -19,10 +19,15 @@ const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 50 * 1024 * 1024 },  
   fileFilter: (req, file, cb) => {
-    if (file.mimetype === 'application/pdf' || file.mimetype === 'text/csv') {
+    if (
+      file.mimetype === 'application/pdf' || 
+      file.mimetype === 'text/csv' || 
+      file.mimetype === 'image/jpeg' || 
+      file.mimetype === 'image/png'
+    ) {
       cb(null, true);
     } else {
-      cb(new Error('Only PDF and CSV files are allowed'));  // Updated error message
+      cb(new Error('Only PDF, CSV, JPEG, and PNG files are allowed'));
     }
   }
 });
@@ -41,7 +46,7 @@ function fileToGenerativePart(buffer, mimeType) {
   };
 }
 
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, _req, res, _next) => {
   console.error('Error:', err);
   res.status(500).json({
     success: false,
@@ -50,7 +55,6 @@ const errorHandler = (err, req, res, next) => {
 };
 
 app.post('/upload', upload.single('file'), async (req, res, next) => {
-  let tempFilePath = null;
 
   try {
     const file = req.file;
@@ -61,7 +65,7 @@ app.post('/upload', upload.single('file'), async (req, res, next) => {
  
     const filePart = fileToGenerativePart(file.buffer, file.mimetype);
 
-    const prompt = `Parse the following PDF, CSV data and return ONLY a JSON object strictly following this structure, WITHOUT any additional text or explanations:
+    const prompt = `Parse the following PDF, CSV, JPEG, PNG data and return ONLY a JSON object strictly following this structure, WITHOUT any additional text or explanations:
 {
   "invoices": [
     {
