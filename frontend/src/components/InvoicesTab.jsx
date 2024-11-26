@@ -6,11 +6,7 @@ const InvoicesTab = () => {
   const invoices = useSelector((state) => state.data.invoices);
 
   return (
-    <TableContainer
-      component={Paper}
-      elevation={4}
-      sx={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)', borderRadius: 2 }}
-    >
+    <TableContainer component={Paper} elevation={4} sx={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)', borderRadius: 2, padding: 2, marginTop: 2}}>
       <Typography variant="h6" sx={{ padding: 2, textAlign: 'center', backgroundColor: '#6C63FF', color: '#FFF' }}>
         Invoices
       </Typography>

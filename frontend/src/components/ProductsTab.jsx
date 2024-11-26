@@ -6,18 +6,18 @@ const ProductsTab = () => {
   const products = useSelector((state) => state.data.products);
 
   return (
-    <TableContainer component={Paper} elevation={3} sx={{ padding: 2, marginTop: 2 }}>
-      <Typography variant="h6" component="div" gutterBottom>
+    <TableContainer component={Paper} elevation={3} sx={{ boxShadow: '0 4px 20px rgba(0,0,0,0.1)', borderRadius: 2 ,padding: 2, marginTop: 2}}>
+        <Typography variant="h6" sx={{ padding: 2, textAlign: 'center', backgroundColor: '#6C63FF', color: '#FFF' }}>
         Products
       </Typography>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Quantity</TableCell>
-            <TableCell>Unit Price</TableCell>
-            <TableCell>Tax</TableCell>
-            <TableCell>Price with Tax</TableCell>
+            <TableCell><strong>Name</strong></TableCell>
+            <TableCell><strong>Quantity</strong></TableCell>
+            <TableCell><strong>Unit Price</strong></TableCell>
+            <TableCell><strong>Tax</strong></TableCell>
+            <TableCell><strong>Price with Tax</strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

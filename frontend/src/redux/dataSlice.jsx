@@ -25,21 +25,6 @@ const dataSlice = createSlice({
     error: null
   },
   reducers: {
-    setInvoices: (state, action) => {
-      state.invoices = action.payload || [];
-    },
-    setProducts: (state, action) => {
-      state.products = action.payload || [];
-    },
-    setCustomers: (state, action) => {
-      state.customers = action.payload || [];
-    },
-    setLoading: (state, action) => {
-      state.loading = action.payload;
-    },
-    setError: (state, action) => {
-      state.error = action.payload;
-    },
     setData: (state, action) => {
       state.invoices = action.payload.invoices || [];
       state.products = action.payload.products || [];
@@ -48,7 +33,7 @@ const dataSlice = createSlice({
   }
 });
 
-export const { setInvoices, setProducts, setCustomers, setData, setLoading, setError } = dataSlice.actions;
+export const {setData} = dataSlice.actions;
 
 
 export const processFile = (file) => async (dispatch) => {

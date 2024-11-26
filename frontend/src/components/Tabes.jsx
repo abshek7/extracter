@@ -2,18 +2,18 @@ import React from 'react';
 import InvoicesTab from './InvoicesTab';
 import ProductsTab from './ProductsTab';
 import CustomersTab from './CustomersTab';
-import { Tabs, Tab, Box, Paper, Grid } from '@mui/material';
+import { Tabs, Tab, Box, Paper, Grid2 } from '@mui/material';
 import { Assignment, ShoppingCart, Group } from '@mui/icons-material';
 
 const Tabes = () => {
-  const [activeTab, setActiveTab] = React.useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
   const handleChange = (event, newValue) => {
     setActiveTab(newValue);
   };
 
   return (
-    <Grid container justifyContent="center" sx={{ padding: 4 }}>
+    <Grid2 container justifyContent="center" sx={{ padding: 4 }}>
       <Paper elevation={6} sx={{ width: '100%', maxWidth: 1200, borderRadius: 4, overflow: 'hidden' }}>
         <Box sx={{ background: 'linear-gradient(45deg, #6C63FF, #FF6584)', padding: 3 }}>
           <Tabs
@@ -48,7 +48,7 @@ const Tabes = () => {
           {activeTab === 2 && <CustomersTab />}
         </Box>
       </Paper>
-    </Grid>
+    </Grid2>
   );
 };
 

@@ -7,15 +7,15 @@ const CustomersTab = () => {
 
   return (
     <TableContainer component={Paper} elevation={3} sx={{ padding: 2, marginTop: 2 }}>
-      <Typography variant="h6" component="div" gutterBottom>
+        <Typography variant="h6" sx={{ padding: 2, textAlign: 'center', backgroundColor: '#6C63FF', color: '#FFF' }}>
         Customers
-      </Typography>
+        </Typography>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Customer Name</TableCell>
-            <TableCell>Phone Number</TableCell>
-            <TableCell>Total Purchase Amount</TableCell>
+            <TableCell><strong>Customer Name</strong></TableCell>
+            <TableCell><strong>Phone Number</strong></TableCell>
+            <TableCell><strong>Total Purchase Amount</strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
